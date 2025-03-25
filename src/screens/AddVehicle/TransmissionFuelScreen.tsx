@@ -25,7 +25,7 @@ const TransmissionFuelScreen: React.FC<TransmissionFuelScreenProps> = ({ navigat
     };
 
     try {
-      await axios.post('http://10.20.20.209:3000/api/vehicles', vehicleData);
+      await axios.post('http://10.20.20.210:3000/api/vehicles', vehicleData);
       Alert.alert('Success', 'Vehicle added successfully!');
       navigation.popToTop();
     } catch (error) {

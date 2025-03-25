@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getTokens } from '../utils/auth';
 
 // Define API base URL
-const API_URL = 'http://10.20.20.209:3000/api/auth';
+const API_URL = 'http://10.20.20.210:3000/api/auth';
 
 // Define response types (update these based on actual API responses)
 interface SendOTPResponse {
