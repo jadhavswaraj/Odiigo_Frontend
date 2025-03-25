@@ -1,3 +1,6 @@
+
+// ================================tsx runnings
+
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from '../screens/Login/LoginScreen';
@@ -146,47 +149,5 @@ export default AppNavigator;
 
 
 
-
-// import React from 'react';
-// import {createStackNavigator} from '@react-navigation/stack';
-// import LoginScreen from '../screens/LoginScreen';
-// import OTPScreen from '../screens/OTPScreen';
-// import HomeScreen from '../screens/HomeScreen';
-// import AddVehicle from '../screens/AddVehicle/AddVehicle';
-// import AddViaReg from '../screens/AddVehicle/AddViaReg';
-// import AddManually from '../screens/AddVehicle/AddManually';
-// import AddRegNo from '../screens/AddVehicle/AddRegNo';
-// import BrandModelScreen from '../screens/AddVehicle/BrandModelScreen';
-// import TransmissionFuelScreen from '../screens/AddVehicle/TransmissionFuelScreen';
-// import LocationPermissionScreen from '../screens/LocationPermissionScreen';
-// const Stack = createStackNavigator();
-
-// const AppNavigator = ({isLoggedIn}) => {
-//   return (
-//     <Stack.Navigator
-//       // initialRouteName={isLoggedIn ? "Home" : "Login"}
-//       initialRouteName={isLoggedIn ? 'Home' : 'Home'}
-//       screenOptions={{headerShown: false}}>
-//       <Stack.Screen name="Login" component={LoginScreen} />
-//       <Stack.Screen name="OTP" component={OTPScreen} />
-//       <Stack.Screen
-//         name="LocationPermission"
-//         component={LocationPermissionScreen}
-//       />
-
-//       <Stack.Screen name="Home" component={HomeScreen} />
-//       <Stack.Screen name="AddVehicle" component={AddVehicle} />
-//       <Stack.Screen name="AddViaReg" component={AddViaReg} />
-//       {/* <Stack.Screen name="AddManually" component={AddManually} /> */}
-//       <Stack.Screen name="AddRegNo" component={AddRegNo} />
-//       <Stack.Screen name="BrandModelScreen" component={BrandModelScreen} />
-//       <Stack.Screen
-//         name="TransmissionFuelScreen"
-//         component={TransmissionFuelScreen}
-//       />
-//     </Stack.Navigator>
-//   );
-// };
-
-// export default AppNavigator;
+// -----------------------------------------------------------js----------------------------------------------------------------
 

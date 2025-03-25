@@ -12,6 +12,7 @@ import Geolocation from 'react-native-geolocation-service';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StackNavigationProp } from '@react-navigation/stack';
+// import { RootStackParamList } from '../../navigation/AppNavigator';
 
 // Define navigation type
 type RootStackParamList = {
@@ -86,7 +87,12 @@ const LocationPermissionScreen: React.FC<LocationPermissionScreenProps> = ({ nav
     } else {
       Alert.alert('Permission Denied', 'You denied location access.');
     }
-    navigation.replace('Home');
+    
+    // navigation.navigate("HomeStack", { screen: "Home" });
+    // navigation.navigate("HomeStack", { screen: "Home" });
+    navigation.replace("Home");
+
+  
   };
 
   return (

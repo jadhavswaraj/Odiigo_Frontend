@@ -4,17 +4,19 @@ import HomeScreen from '../screens/Home/HomeScreen';
 import LocationPermissionScreen from '../screens/Location/LocationPermissionScreen';
 
 export type HomeStackParamList = {
-    Home: undefined;
-    LocationPermission: undefined;
+  Home: undefined;
+//   LocationPermission: undefined;
 };
 
-const Stack = createStackNavigator<HomeStackParamList>();
+const HomeStack = createStackNavigator<HomeStackParamList>();
 
-const HomeStack = () => (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="LocationPermission" component={LocationPermissionScreen} />
-    </Stack.Navigator>
-);
+const HomeNavigator = () => {
+  return (
+    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+      <HomeStack.Screen name="Home" component={HomeScreen} />
+      {/* <HomeStack.Screen name="LocationPermission" component={LocationPermissionScreen} /> */}
+    </HomeStack.Navigator>
+  );
+};
 
-export default HomeStack;
+export default HomeNavigator;
