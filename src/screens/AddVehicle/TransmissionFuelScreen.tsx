@@ -1,11 +1,11 @@
 
-
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import axios from 'axios';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RouteProp } from '@react-navigation/native';
-import type { RootStackParamList } from '../../navigation/AppNavigator'; // ✅ Correct import
+import { RootStackParamList } from '../../navigation/AppNavigator'; // Correct import
+
 
 type TransmissionFuelScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'TransmissionFuelScreen'>;
@@ -27,7 +27,7 @@ const TransmissionFuelScreen: React.FC<TransmissionFuelScreenProps> = ({ navigat
     };
 
     try {
-      await axios.post('http://10.0.2.2:3000/api/vehicles', vehicleData);
+      await axios.post('http://10.20.20.209:3000/api/vehicles', vehicleData);
       Alert.alert('Success', 'Vehicle added successfully!');
       navigation.replace('Home');
     } catch (error) {

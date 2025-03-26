@@ -49,7 +49,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   }, [navigation]);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container}>+
       <Text style={styles.welcome}>🎉 Welcome to Odiigo!</Text>
       <Text style={styles.subtitle}>You're now logged in</Text>
 
@@ -69,6 +69,9 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
     </View>
   );
 };
+
+
+
 
 const styles = StyleSheet.create({
   container: {

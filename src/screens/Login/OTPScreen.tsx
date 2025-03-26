@@ -29,7 +29,9 @@ const OTPScreen: React.FC<Props> = ({ route, navigation }) => {
         await storeToken(response.accessToken, response.refreshToken);
         await AsyncStorage.setItem('phone', mobile);
         // navigation.replace('LocationPermission');
+        // navigation.navigate('LocationPermission');
         navigation.navigate('LocationPermission');
+
 
       } else {
         setError('Invalid OTP response. Try again.');

@@ -1,4 +1,8 @@
 
+
+
+
+
 // ================================tsx runnings
 
 import React from 'react';
@@ -37,6 +41,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 interface AppNavigatorProps {
   isLoggedIn: boolean;
 }
+
 
 const AppNavigator: React.FC<AppNavigatorProps> = ({ isLoggedIn }) => {
   return (
