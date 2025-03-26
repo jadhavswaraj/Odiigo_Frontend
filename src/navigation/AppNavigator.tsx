@@ -56,6 +56,9 @@ const AppNavigator: React.FC<AppNavigatorProps> = ({ isLoggedIn }) => {
   );
 };
 
+export default AppNavigator;
+
+
 // const AppNavigator: React.FC<AppNavigatorProps> = ({ isLoggedIn }) => {
 //   return (
 //     <Stack.Navigator
@@ -81,7 +84,6 @@ const AppNavigator: React.FC<AppNavigatorProps> = ({ isLoggedIn }) => {
 //   );
 // };
 
-export default AppNavigator;
 
 
 // import React from 'react';

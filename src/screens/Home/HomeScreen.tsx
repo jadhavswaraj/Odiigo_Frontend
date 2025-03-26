@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
-import { removeToken } from '../../utils/auth';
+import { removeToken, checkTokenValidity } from '../../utils/auth';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 // Define the type for navigation
 type HomeScreenProps = {
-  navigation: StackNavigationProp<any>; // Replace 'any' with your RootStackParamList if defined
+  navigation: StackNavigationProp<any>;
 };
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
@@ -14,14 +14,39 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
     navigation.replace('Login');
   };
 
-  // Auto logout after 15 minutes
+  // 🔹 Check if the token is valid when the component mounts
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      handleLogout();
-    }, 15 * 60 * 1000); // 15 minutes in milliseconds
+    const checkAuthStatus = async () => {
+      const isValid = await checkTokenValidity();
+      if (!isValid) {
+        handleLogout();
+      }
+    };
 
-    return () => clearTimeout(timeout); // Cleanup when unmounted
+    checkAuthStatus();
   }, []);
+
+  // 🔹 Auto logout after 15 minutes of inactivity (resets if user interacts)
+  useEffect(() => {
+    let timeout = setTimeout(() => {
+      handleLogout();
+    }, 15 * 60 * 1000);
+
+    const resetTimer = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        handleLogout();
+      }, 15 * 60 * 1000);
+    };
+
+    // Listen for user interaction (navigation, press events)
+    const unsubscribeFocus = navigation.addListener('focus', resetTimer);
+
+    return () => {
+      clearTimeout(timeout);
+      unsubscribeFocus();
+    };
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
@@ -30,13 +55,15 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
 
       <Pressable
         style={({ pressed }) => [styles.addButton, pressed && styles.addButtonPressed]}
-        onPress={() => navigation.navigate('AddVehicle')}>
+        onPress={() => navigation.navigate('AddVehicle')}
+      >
         <Text style={styles.addButtonText}>Add Vehicle</Text>
       </Pressable>
 
       <Pressable
         style={({ pressed }) => [styles.logoutButton, pressed && styles.logoutButtonPressed]}
-        onPress={handleLogout}>
+        onPress={handleLogout}
+      >
         <Text style={styles.buttonText}>Logout</Text>
       </Pressable>
     </View>
