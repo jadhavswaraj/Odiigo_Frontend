@@ -29,7 +29,9 @@ const TransmissionFuelScreen: React.FC<TransmissionFuelScreenProps> = ({ navigat
     try {
       await axios.post('http://10.20.20.209:3000/api/vehicles', vehicleData);
       Alert.alert('Success', 'Vehicle added successfully!');
-      navigation.replace('Home');
+      // navigation.replace('Home');
+      navigation.replace('Home', { userLocation: undefined }); // ✅ Pass undefined if no location is needed
+
     } catch (error) {
       Alert.alert('Error', 'Failed to add vehicle');
     }

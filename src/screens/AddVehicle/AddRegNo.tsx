@@ -21,7 +21,9 @@ const AddRegNo: React.FC<AddRegNoProps> = ({ navigation }) => {
             />
             <TouchableOpacity
                 style={styles.button}
-                onPress={() => navigation.navigate('BrandModelScreen', { licensePlate })}
+                onPress={() => navigation.navigate('AddBrand', { licensePlate })}
+
+                // onPress={() => navigation.navigate('BrandModelScreen', { licensePlate })}
             >
                 <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
