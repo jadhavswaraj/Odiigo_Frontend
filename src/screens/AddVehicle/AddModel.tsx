@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
- 
+
 type AddModelProps = {
     navigation: NativeStackNavigationProp<any>;
     route: { params: { licensePlate: string; brandName: string } };
 };
- 
+
 const AddModel: React.FC<AddModelProps> = ({ navigation, route }) => {
     const { licensePlate, brandName } = route.params;
     const [brandModel, setBrandModel] = useState<string>('');
- 
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Enter Model Name</Text>
@@ -20,7 +20,7 @@ const AddModel: React.FC<AddModelProps> = ({ navigation, route }) => {
                 value={brandModel}
                 onChangeText={setBrandModel}
             />
- 
+
             <TouchableOpacity
                 style={styles.button}
                 onPress={() =>
@@ -32,7 +32,7 @@ const AddModel: React.FC<AddModelProps> = ({ navigation, route }) => {
         </View>
     );
 };
- 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -69,5 +69,5 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
 });
- 
+
 export default AddModel;

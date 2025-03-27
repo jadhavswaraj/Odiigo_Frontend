@@ -2,53 +2,53 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, FlatList } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/AppNavigator';
- 
+
 type AddBrandProps = {
     navigation: NativeStackNavigationProp<RootStackParamList, 'AddBrand'>;
     route: { params: { licensePlate: string } };
 };
- 
+
 // Manually map brand names to their images
 const brandImages: { [key: string]: any } = {
     Toyota: require('../../assets/images/toyota-logo.png'),
-    Tata: require('../../assets/images/Tata-logo.png'),
-    Mahindra: require('../../assets/images/Mahindra-logo.png'),
-    Suzuki: require('../../assets/images/Suzuki-logo.png'),
-    Renault: require('../../assets/images/Renault-logo.png'),
-    Skoda: require('../../assets/images/Skoda-logo.png'),
+    Tata: require('../../assets/images/tata-logo.png'),
+    Mahindra: require('../../assets/images/mahindra-logo.png'),
+    Suzuki: require('../../assets/images/suzuki-logo.png'),
+    Renault: require('../../assets/images/renault-logo.png'),
+    Skoda: require('../../assets/images/skoda-logo.png'),
     Hyundai: require('../../assets/images/hyundai-logo.png'),
     Ford: require('../../assets/images/ford-logo.png'),
-    Audi : require('../../assets/images/audi-logo.png'),
+    Audi: require('../../assets/images/audi-logo.png'),
     BMW: require('../../assets/images/bmw-logo.png'),
-    BYD: require('../../assets/images/BYD-logo.png'),
-    Chevrolet: require('../../assets/images/Chevrolet-logo.png'),
-    Citroen: require('../../assets/images/Citroen-logo.png'),
-    Fiat: require('../../assets/images/Fiat-logo.png'),  // Should be "Fiat", not "Flat"
+    BYD: require('../../assets/images/byd-logo.png'),
+    Chevrolet: require('../../assets/images/chevrolet-logo.png'),
+    Citroen: require('../../assets/images/citroen-logo.png'),
+    Fiat: require('../../assets/images/fiat-logo.png'),  // Should be "Fiat", not "Flat"
     Honda: require('../../assets/images/honda-logo.png'),
-    Isuzu: require('../../assets/images/Isuzu-logo.png'),
+    Isuzu: require('../../assets/images/isuzu-logo.png'),
     Jaguar: require('../../assets/images/jaguar-logo.png'),
     Jeep: require('../../assets/images/jeep-logo.png'),
-    Kia: require('../../assets/images/Kia-logo.png'),
-    'LandRover': require('../../assets/images/Land-Rover-logo.png'),
-    'Mercedes': require('../../assets/images/Mercedes-Benz-logo.png'),
-    MG: require('../../assets/images/MG-logo.png'),
-    Mitsubishi: require('../../assets/images/Mitsubishi-logo.png'),
+    Kia: require('../../assets/images/kia-logo.png'),
+    'LandRover': require('../../assets/images/land-rover-logo.png'),
+    'Mercedes': require('../../assets/images/mercedes-benz-logo.png'),
+    MG: require('../../assets/images/mg-logo.png'),
+    Mitsubishi: require('../../assets/images/mitsubishi-logo.png'),
     Nissan: require('../../assets/images/nissan-logo.png'),
     Porsche: require('../../assets/images/porsche-logo.png'),
-    Volkswagen: require('../../assets/images/Volkswagen.png'),
-    Volvo: require('../../assets/images/Volvo-logo.png'),
+    Volkswagen: require('../../assets/images/volkswagen.png'),
+    Volvo: require('../../assets/images/volvo-logo.png'),
 };
- 
+
 const brands = Object.keys(brandImages);
- 
+
 const AddBrand: React.FC<AddBrandProps> = ({ navigation, route }) => {
     const { licensePlate } = route.params;
     const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
- 
+
     const handleBrandSelect = (brand: string) => {
         setSelectedBrand(brand);
     };
- 
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Add your vehicle</Text>
@@ -58,7 +58,7 @@ const AddBrand: React.FC<AddBrandProps> = ({ navigation, route }) => {
                 placeholderTextColor="#999"
             />
             <Text style={styles.subTitle}>Select your car Brand</Text>
- 
+
             <FlatList
                 data={brands}
                 numColumns={4}
@@ -74,7 +74,7 @@ const AddBrand: React.FC<AddBrandProps> = ({ navigation, route }) => {
                     </TouchableOpacity>
                 )}
             />
- 
+
             <TouchableOpacity
                 style={[styles.continueButton, !selectedBrand && styles.disabledButton]}
                 onPress={() => selectedBrand && navigation.navigate('AddModel', { licensePlate, brandName: selectedBrand })}
@@ -85,7 +85,7 @@ const AddBrand: React.FC<AddBrandProps> = ({ navigation, route }) => {
         </View>
     );
 };
- 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -156,7 +156,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
 });
- 
+
 export default AddBrand;
- 
- 
+

@@ -81,7 +81,7 @@ const handleAllow = async (navigation: any): Promise<void> => {
 
       try {
         const response = await axios.post(
-          'http://10.20.20.209:3000/api/location/store-location',
+          'http://10.20.20.210:3000/api/location/store-location',
           { phone, latitude, longitude }
         );
         console.log('✅ API Response:', response.data);
